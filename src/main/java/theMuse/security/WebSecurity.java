@@ -37,11 +37,12 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
 		
 		http.csrf().disable();
-		http.authorizeRequests().antMatchers("/**").permitAll();	// 모든 리소스에 대해 접근을 허용
+			// 모든 리소스에 대해 접근을 허용
 	
 		
-		http.authorizeRequests()
-		.antMatchers("/login").permitAll()
+		//http.authorizeRequests()
+		//.antMatchers("/login").permitAll()
+		http.authorizeRequests().antMatchers("/**").permitAll()
 		.anyRequest().authenticated()
 		.and().addFilter(getAuthenticationFilter())
 		.addFilterBefore(jwtRequestFilter, AuthenticationFilter.class).cors();

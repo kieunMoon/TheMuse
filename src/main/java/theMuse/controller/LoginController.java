@@ -1,5 +1,7 @@
 package theMuse.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +30,7 @@ public class LoginController {
 //		}
 //	}
 	
-	@PostMapping("/api/regist")
+	@PostMapping("/regist")
 	public ResponseEntity<Object> regist(@RequestBody UserDto userDto) throws Exception {
 		int registedCount = loginService.registUser(userDto);
 		if (registedCount > 0) {
